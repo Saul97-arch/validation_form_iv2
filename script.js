@@ -44,3 +44,28 @@ function ValidaCPF() {
     alert("CPF Inválido");
   }
 }
+
+function getDadosEnderecoCEP(cep) {
+  let xhr = new XMLHttpRequest();
+
+  let url = "https://viacep.com.br/ws/" + cep + "/json/unicode/";
+
+  xhr.open("GET", url, true);
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4) {
+      if (xhr.status == 200) {
+        let dadosJSONText = xhr.responseText;
+        let dadosJSONObj = JSON.parse(dadosJSONText);
+
+        document.getElementById("rua").value = dadosJSONObj.logradouro;
+        document.getElementById("bairro").value = dadosJSONObj.bairro;
+        document.getElementById("cidade").value = dadosJSONObj.localidade;
+        document.getElementById("estado").value = dadosJSONObj.uf;
+      }
+    }
+  };
+  xhr.send();
+}
+
+document.getElementById("cep").addEventListener("keypress", getDadosEnderecoCEP);
