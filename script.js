@@ -50,8 +50,6 @@ function getDadosEnderecoCEP(cep) {
 
   let url = "https://viacep.com.br/ws/" + cep + "/json/unicode/";
 
-  xhr.open("GET", url, true);
-
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4) {
       if (xhr.status == 200) {
@@ -65,7 +63,11 @@ function getDadosEnderecoCEP(cep) {
       }
     }
   };
+
+  xhr.open("GET", url, true);
   xhr.send();
 }
 
-document.getElementById("cep").addEventListener("keypress", getDadosEnderecoCEP);
+document
+  .getElementById("cep")
+  .addEventListener("keypress", getDadosEnderecoCEP);
