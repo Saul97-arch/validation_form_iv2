@@ -29,8 +29,10 @@
           maxlength="12"
           onchange="validarrg()"
         />
-        <label for="data_nascimento">Data de Nascimento</label>
-        <input type="date" name="data_nascimento" id="data_nascimento" />
+        <label for="data_nascimento">
+          Data de Nascimento
+          <input type="date" name="data_nascimento" id="data_nascimento" />
+        </label>
         <label for="tipo_chh">Tipo CHN</label>
         <select name="tipo_cnh" id="tipo_cnh">
           <option value="A">A</option>
@@ -39,7 +41,7 @@
         <label for="estado_civil">Estado Civil</label>
         <input type="text" name="estado_civil" id="estado_civil" />
         <label for="cep">CEP</label>
-        <input type="text" name="cep" id="cep" />
+        <input type="text" name="cep" id="cep" onkeypress="mascara(this, '#####-###')" onchange ="getDadosEnderecoCEP(this.value)"/>
         <label for="rua">Rua</label>
         <input type="text" name="rua" id="rua" />
         <label for="bairro">Bairro</label>

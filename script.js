@@ -47,8 +47,8 @@ function ValidaCPF() {
 
 function getDadosEnderecoCEP(cep) {
   let xhr = new XMLHttpRequest();
-
   let url = "https://viacep.com.br/ws/" + cep + "/json/unicode/";
+  xhr.open("GET", url, true);
 
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4) {
@@ -64,10 +64,7 @@ function getDadosEnderecoCEP(cep) {
     }
   };
 
-  xhr.open("GET", url, true);
   xhr.send();
 }
 
-document
-  .getElementById("cep")
-  .addEventListener("keypress", getDadosEnderecoCEP);
+

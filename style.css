@@ -37,3 +37,8 @@ label {
 input {
     font-size: 1.1rem;
 }
+
+label {
+    display: flex;
+    flex-direction: column;
+}
